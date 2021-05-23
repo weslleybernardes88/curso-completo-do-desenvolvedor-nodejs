@@ -16,9 +16,9 @@ module.exports = function(application){
             }
         });
         
-        var noticiasModel = application.app.models.noticiasModel;
+        var noticiasModel = new application.app.models.NoticiasDAO(connection);
 
-        noticiasModel.getNoticias(connection,function(erro,result){
+        noticiasModel.getNoticias(function(erro,result){
             //res.send(result);
             res.render("noticias/noticia",{noticia: result})
         });
