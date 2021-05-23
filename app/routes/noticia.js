@@ -3,7 +3,7 @@ module.exports = function(application){
     
     
     
-    application.get('/noticias', function(req, res){
+    application.get('/noticia', function(req, res){
 
         
         var connection = application.config.dbConnection();
@@ -16,9 +16,9 @@ module.exports = function(application){
             }
         });
         
-        var noticiasModel = application.app.models.noticiasModel;
+        var noticiaModel = application.app.models.noticiasModel;
 
-        noticiasModel.getNoticias(connection,function(erro,result){
+        noticiaModel.getNoticia(connection,function(erro,result){
             //res.send(result);
             res.render("noticias/noticia",{noticia: result})
         });
